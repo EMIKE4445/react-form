@@ -1,38 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right-container, .left-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left-container {
+  grid-column: 1/4;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right-container {
+  grid-column: 4/-1;
+  background-color: #286efa;
+  color: #fff;
+  gap: 90px;
+  padding: 180px;
+}
+
+.right-container p {
+  line-height: 30px;
+}
+
+.step-count {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+.step-dots-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-inline-start: 10px;
+  margin-inline-end: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-dots-container > div {
+  border-radius: 5px;
+  width: 5px;
+  height: 5px;
+  background-color: rgb(161, 147, 147);
+  display: inline-block;
+}
+
+.signup-content-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 40px;
+  width: 500px;
 }
 
-.App-link {
-  color: #61dafb;
+.signup-text {
+  font-size: 2rem;
+  color: #333333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.alternate-login-text{
+  font-weight: 600;
+}
+
+.alternate-login-text span {
+  color: #286efa;
+  cursor: pointer;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  /* width: ; */
+}
+
+.signup-form input,.signup-form select{
+  width: 450px;
+  height: 50px;
+  border: 0;
+  padding-inline-start: 15px;
+  font-size: 0.9em;
+  color: rgb(116, 113, 113);
+}
+
+.signup-form input:focus , .signup-form select:focus {
+  border: 0;
+  outline: none;
+}
+
+.legend {
+  color: rgb(116, 113, 113);
+  margin-inline-start: 15px;
+}
+
+.signup-form fieldset {
+  border: 0;
+  width:fit-content;
+  height: fit-content;
+  padding: 1px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.signup-form  .legend {
+  display: none;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  background-color: #fff;
+}
+
+.error-message {
+  position: absolute;
+  color: red;
+  font-size: 0.8rem;
+  display: none;
+}
+
+.fa-icons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.signup-form fieldset:focus-within > .legend, .signup-form input:not(:placeholder-shown)  ~ .legend {
+  display: inline-block;
+}
+
+.signup-form fieldset:focus-within input::placeholder {
+  color: transparent;
+}
+
+.signup-form select {
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+}
+
+.signup-form input[type="submit"] {
+  text-transform: capitalize;
+  background-color: #286efa;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.submit_disabled {
+  pointer-events: none;
+  background-color: #ccc !important;
+  color: rgb(116, 113, 113) !important;
+}
+
+.signup-form span{
+  margin-top: -20px;
+  font-size:0.8rem;
+  color: rgb(116, 113, 113);
+}
+
+
+.terms {
+  margin-block-start: 40px;
+  color: #333333;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 450px;
+}
+
+.terms span {
+  color: #286efa;
+  cursor: pointer;
 }
